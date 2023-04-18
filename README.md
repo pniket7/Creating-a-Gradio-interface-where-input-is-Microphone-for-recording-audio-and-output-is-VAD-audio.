@@ -33,11 +33,11 @@
 - The path of the output audio file and its duration in seconds are returned as outputs to the Gradio interface.
 - The Gradio interface displays the output audio and duration to the user.
 
-**8. LICENSE:**
+**5. LICENSE:**
 
 - This project is licensed under the MIT LICENSE.
 
-**9.** **CONTACT INFORMATION:**
+**6.** **CONTACT INFORMATION:**
 
 - For any questions or feedback, please contact:
 
