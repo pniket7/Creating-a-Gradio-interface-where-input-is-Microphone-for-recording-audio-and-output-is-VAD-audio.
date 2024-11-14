@@ -1,9 +1,4 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
+# Import necessary libraries
 import gradio as gr
 import librosa
 import librosa.display
@@ -13,19 +8,13 @@ import tempfile
 import os
 import datetime
 
-
-# In[2]:
-
-
+# Create input and output folders if they don't exist
 input_folder = '/home/niket/Pictures/INPUT_VAD'
 output_folder = '/home/niket/Pictures/OUTPUT_VAD'
 os.makedirs(input_folder, exist_ok=True)
 os.makedirs(output_folder, exist_ok=True)
 
-
-# In[10]:
-
-
+# Define Voice Activity Detection (VAD) function using librosa
 def vad_with_librosa(input_audio):
     
 # Generate unique file name based on timestamp for input audio
@@ -94,20 +83,17 @@ def vad_with_librosa(input_audio):
 # Calculate duration of output audio in seconds
     duration = output_audio_data.shape[0] / sr
     
+# Return the path to the output file and its duration    
     return temp_output_path, duration
 
 
-# In[11]:
-
-
+# Define Gradio input and output components for the web interface
 audio_input = gr.inputs.Audio(source="microphone", label="Input Audio")
 audio_output = gr.outputs.Audio(type="numpy", label="Output Audio")
 duration_output = gr.outputs.Label(label="Duration in seconds")
 
 
-# In[12]:
-
-
+# Create and launch the Gradio interface
 gr.Interface(
     vad_with_librosa,
     inputs=audio_input,
